@@ -3,9 +3,15 @@ import "./hero.css";
 import devAnimation from "../../animation/dev.json";
 import { useRef } from "react";
 import { motion } from "framer-motion";
-
+import { useTypewriter, Cursor } from "react-simple-typewriter";
 const Hero = () => {
   const lottieRef = useRef();
+  const [text] = useTypewriter({
+    words: ["Frontend", "web Developer", "React Dev"],
+    loop: 0,
+    typeSpeed: 80,
+    deleteSpeed: 70,
+  });
 
   return (
     <section className="hero flex">
@@ -22,14 +28,13 @@ const Hero = () => {
           <div className="icon-verified"></div>
         </div>
 
-        <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
-          className="title"
-        >
-          Software designer, founder, and amateur astronaut.
-        </motion.h1>
+        <h1 className="title">
+          I'm{" "}
+          <span style={{ color: "darkorange", fontWeight: "bold" }}>
+            {text}
+          </span>
+          <Cursor cursorStyle="👋" />
+        </h1>
 
         <p className="sub-title">
           I’m Youcef Khalfi, a software designer and entrepreneur based in New
